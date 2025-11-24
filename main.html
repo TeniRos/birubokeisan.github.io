@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ビルボ計算機</title>
+    <link rel="stylesheet" href="./style.css">
+</html>
+
+<body>
+    <header class = "header">
+        <div class = "site">
+            <a href = "./main.html" class = "site-title">ビルボ計算機</a>
+        </div>
+    </header>
+    <main>
+        <canvas id = "super_canvas" width="400" height="300"></canvas>
+        <div class="sliders">
+            <div><input type="range" id="x1_slider" min="0" max="7" value="0" step="1">
+                X: <input type="text" id="x1_text">
+            </div>
+            <div><input type="range" id="y1_slider" min="0" max="5" value="0" step="1">
+                Y: <input type="text" id="y1_text">
+            </div>
+        </div>
+        <div class="result">
+            <p>緑線の長さ: <span id="GLineLength">0</span></p>
+        </div>
+    </main>
+
+    <script src="./main.js"></script>
+</body>
