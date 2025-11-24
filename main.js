@@ -7,6 +7,8 @@ const x1_text = document.getElementById("x1_text");
 const y1_text = document.getElementById("y1_text");
 
 const GLineLengthText = document.getElementById("GLineLength");
+const BGAngleText = document.getElementById("BGAngle");
+const RGAngleText = document.getElementById("RGAngle");
 
 // キャンバスの中央を移動
 ctx.translate(0, canvas.height-50);
@@ -39,7 +41,10 @@ x1_slider.addEventListener("input", () => {
     ctx.stroke();
     ctx.closePath();
 
-    GLineLengthText.textContent = pythagoras(parseFloat(x1_text.value), parseFloat(y1_text.value))
+    const slopeLength = pythagoras(parseFloat(x1_text.value), parseFloat(y1_text.value))
+    GLineLengthText.textContent = slopeLength;
+    BGAngleText.textContent = `${calculateAngle(parseFloat(x1_text.value), parseFloat(y1_text.value))}°`;
+    RGAngleText.textContent = `${90-calculateAngle(parseFloat(x1_text.value), parseFloat(y1_text.value))}°`;
 });
 
 y1_slider.addEventListener("input", () => {
@@ -60,7 +65,10 @@ y1_slider.addEventListener("input", () => {
     ctx.stroke();
     ctx.closePath();
 
-    GLineLengthText.textContent = pythagoras(parseFloat(x1_text.value), parseFloat(y1_text.value))
+    const slopeLength = pythagoras(parseFloat(x1_text.value), parseFloat(y1_text.value))
+    GLineLengthText.textContent = slopeLength;
+    BGAngleText.textContent = `${calculateAngle(parseFloat(x1_text.value), parseFloat(y1_text.value))}°`;
+    RGAngleText.textContent = `${90-calculateAngle(parseFloat(x1_text.value), parseFloat(y1_text.value))}°`;
 });
 
 
@@ -84,7 +92,10 @@ x1_text.addEventListener("input", () => {
     ctx.stroke();
     ctx.closePath();
 
-    GLineLengthText.textContent = pythagoras(parseFloat(x1_text.value), parseFloat(y1_text.value))
+        const slopeLength = pythagoras(parseFloat(x1_text.value), parseFloat(y1_text.value))
+    GLineLengthText.textContent = slopeLength;
+    BGAngleText.textContent = `${calculateAngle(parseFloat(x1_text.value), parseFloat(y1_text.value))}°`;
+    RGAngleText.textContent = `${90-calculateAngle(parseFloat(x1_text.value), parseFloat(y1_text.value))}°`;
 });
 y1_text.addEventListener("input", () => {
     y1_slider.value = parseFloat(y1_text.value);
@@ -105,7 +116,11 @@ y1_text.addEventListener("input", () => {
     ctx.stroke();
     ctx.closePath();
 
-    GLineLengthText.textContent = pythagoras(parseFloat(x1_text.value), parseFloat(y1_text.value))
+    const slopeLength = pythagoras(parseFloat(x1_text.value), parseFloat(y1_text.value))
+    GLineLengthText.textContent = slopeLength;
+    BGAngleText.textContent = `${calculateAngle(parseFloat(x1_text.value), parseFloat(y1_text.value))}°`;
+    RGAngleText.textContent = `${90-calculateAngle(parseFloat(x1_text.value), parseFloat(y1_text.value))}°`;
 });
 
 function pythagoras(x,y){return Math.sqrt(x**2 + y**2);};
+function calculateAngle(x, y) {return Math.atan2(y, x) * (180 / Math.PI);}
